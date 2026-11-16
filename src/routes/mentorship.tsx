@@ -56,19 +56,25 @@ const tiers = [
   },
 ];
 
-const quotes: Array<[string, string]> = [
-  [
-    "Marya helped me hear the book I was actually writing, not the one I thought I was supposed to write.",
-    "— S.M., novelist",
-  ],
-  [
-    "The work was practical, literary, and surprisingly tender. I left every call with one true sentence.",
-    "— J.K., essayist",
-  ],
-  [
-    "She holds a room the way good editors hold a manuscript — with respect and with teeth.",
-    "— A.R., visual artist",
-  ],
+const quotes = [
+  {
+    quote:
+      "Her many years teaching writing as a college instructor combined with her experience as a journalist and creative writer are apparent in her intelligent and creative approaches to teaching.",
+    name: "Kara Walker Tomé",
+    role: "Education Director, Palm Beach Institute of Contemporary Art",
+  },
+  {
+    quote:
+      "If you combine the Socratic method with charisma and generosity, you get Professor Summers' teaching style!",
+    name: "Eddie Vega",
+    role: "Author of Awake Now, Sailor!",
+  },
+  {
+    quote:
+      "If you're a novice, professional, or aspiring writer you will be inspired. If you have a connection to the earth (or want one), you will be inspired. Marya craftily and purposely leads you through a journey that subtly makes you want to write and to write better.",
+    name: "Gretta Jacobs",
+    role: "Writer & Yogi",
+  },
 ];
 
 function MentorshipPage() {
@@ -146,13 +152,14 @@ function MentorshipPage() {
           <div className="eyebrow">In their words</div>
           <SpiralDivider className="mt-4 mb-10 justify-start" />
           <div className="space-y-10">
-            {quotes.map(([q, who]) => (
-              <figure key={who}>
+            {quotes.map(({ quote, name, role }) => (
+              <figure key={name}>
                 <blockquote className="font-display text-xl italic leading-snug text-forest md:text-2xl">
-                  "{q}"
+                  "{quote}"
                 </blockquote>
-                <figcaption className="mt-3 text-xs uppercase tracking-[0.22em] text-ink/60">
-                  {who}
+                <figcaption className="mt-3">
+                  <span className="text-xs uppercase tracking-[0.22em] text-ink/60">— {name}</span>
+                  <span className="mt-1 block text-xs italic text-ink/60">{role}</span>
                 </figcaption>
               </figure>
             ))}
