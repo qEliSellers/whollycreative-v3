@@ -4,7 +4,8 @@ import { PageHeader } from "../components/PageHeader";
 import { SpiralDivider } from "../components/Spiral";
 import { PrimaryLink } from "../components/Buttons";
 import writingMyselfCover from "../assets/writing-myself.jpg";
-import aHardClimbCover from "../assets/a-hard-climb.webp";
+import aHardClimbCover from "../assets/a-hard-climb-cover.jpg";
+import wayfarerCover from "../assets/wayfarer-magazine.jpg";
 import fivePointsJournal from "../assets/five-points-journal.webp";
 import braidedWay from "../assets/braided-way.webp";
 
@@ -39,7 +40,8 @@ type Pub = {
   /** External link. Entries without one (print-only / forthcoming) render no link. */
   href?: string;
   cover?: string;
-  /** Human-readable publication credit shown on the card, e.g. "Pensive, Fall 2024". */
+  coverFit?: "cover" | "contain";
+  /** Publication date shown below the kind; publisher credits belong in note. */
   dateLabel?: string;
 };
 
@@ -54,7 +56,7 @@ const poetry: Pub[] = [
     sub: "Forthcoming",
     kind: "Poem",
     note: "A new poem forthcoming in Artemis Journal's 50th Anniversary Issue.",
-    dateLabel: "Artemis Journal, 50th Anniversary Issue, October 2026",
+    dateLabel: "October 2026",
   },
   {
     title: "August Complex with Vehicular Homelessness",
@@ -63,15 +65,17 @@ const poetry: Pub[] = [
     note: "Published in Five Points: A Journal of Literature & Art.",
     href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/c6ceffa551e340c783de0abfb4bb39da/August%20Complex%20with%20Vehicular%20Homelessness%20Five%20Points%20Journal.pdf",
     cover: fivePointsJournal,
-    dateLabel: "Five Points, Spring 2026",
+    dateLabel: "Spring 2026",
   },
   {
     title: "Shooting from the Lip",
     sub: "Words fly like bullets",
     kind: "Poem",
     note: "Published in Wayfarer Magazine.",
-    href: "https://www.wayfarermagazine.com/p/shooting-from-the-lip",
-    dateLabel: "Wayfarer Magazine, February 2026",
+    href: "https://wayfarermagazine.substack.com/p/shooting-from-the-lip",
+    cover: wayfarerCover,
+    coverFit: "contain",
+    dateLabel: "February 2026",
   },
   {
     title: "For Once In My Life",
@@ -81,7 +85,7 @@ const poetry: Pub[] = [
     href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/3118406443384015b1ffd3bb7b0c2999/IMG_9432.jpg",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-5/795/1999795/4dGRgZn1/666bfbfb06be464f96804b415053cdb1",
-    dateLabel: "The Fourth River, 2025",
+    dateLabel: "2025",
   },
   {
     title: "On the Dunes of Manchester Beach",
@@ -90,16 +94,16 @@ const poetry: Pub[] = [
     href: "https://www.calameo.com/read/0064651467b168bf645fd",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-5/795/1999795/4dGRgZn1/0c61f68190a04a33a4c086c5b86df1e7",
-    dateLabel: "Pensive, Spring 2025",
+    dateLabel: "Spring 2025",
   },
   {
     title: "The Congregation",
     kind: "Poem",
     note: "Published in Pensive: A Global Journal of Spirituality & the Arts.",
-    href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/b3ca62f61f674ed79ef70d1c4e0aa8da/Screen%20Shot%202025-08-16%20at%202.02.24%20PM.png",
+    href: "https://www.calameo.com/read/006465146b8c37925c4b7",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-5/795/1999795/4dGRgZn1/a44121effcbc4771a2b5c9a86cd49ac3",
-    dateLabel: "Pensive, Fall 2024",
+    dateLabel: "Fall 2024",
   },
   {
     title: "On this Post-Election Shore",
@@ -109,7 +113,7 @@ const poetry: Pub[] = [
     href: "https://thedissidentvoice.org/2024/11/on-this-post-election-shore-2024/",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-5/795/1999795/4dGRgZn1/bcd304dfcc51464f95b755ea6f3ec234",
-    dateLabel: "Dissident Voice, November 2024",
+    dateLabel: "November 2024",
   },
   {
     title: "A Begrudging Nomad",
@@ -118,7 +122,7 @@ const poetry: Pub[] = [
     href: "https://riseupreview.org/marya-summers",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-5/795/1999795/4dGRgZn1/df1a654e3304495fb9a08e4498fb5f3f",
-    dateLabel: "Rise Up Review, Summer/Autumn 2024",
+    dateLabel: "Summer/Autumn 2024",
   },
   {
     title: "Love Poem for the Abandoned Child",
@@ -127,23 +131,23 @@ const poetry: Pub[] = [
     href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/d00eb3a26e634a82b2bc44c6f1206db5/Love%20Poem%20for%20abandoned%20Child.pdf",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-8/048/1607048/Jn0mfjm8/c55231d0e5da4d43a0ed5857257e9188",
-    dateLabel: "Pleiades, Spring 2024",
+    dateLabel: "Spring 2024",
   },
   {
     title: "The Honest Word",
     sub: "3rd Place National Award, Social Critique",
     kind: "Poem",
-    note: "Recognized by the National Federation of State Poetry Societies.",
+    note: "Published in Encore: Prize Poems. Recognized by the National Federation of State Poetry Societies.",
     href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/5a1734c2c75b4a498f7ec7e5b6281297/The%20Honest%20Word.pdf",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-8/048/1607048/Jn0mfjm8/e102ede92e964291ab00b9caaf65f048",
-    dateLabel: "Encore: Prize Poems, 2023",
+    dateLabel: "2023",
   },
   {
     title: "In This Landscape",
     kind: "Poem",
     note: "Published in the anthology All the Lives We Ever Lived.",
-    dateLabel: "All the Lives We Ever Lived, 2023",
+    dateLabel: "2023",
   },
   {
     title: "A Hard Climb",
@@ -151,7 +155,8 @@ const poetry: Pub[] = [
     note: "Published in Kaleidoscope 87, pages 31–32.",
     href: "https://www.udsakron.org/wp-content/uploads/K87-FINAL.pdf",
     cover: aHardClimbCover,
-    dateLabel: "Kaleidoscope 87, Summer/Fall 2023",
+    coverFit: "contain",
+    dateLabel: "Summer/Fall 2023",
   },
   {
     title: "Where Wind Belongs",
@@ -161,15 +166,16 @@ const poetry: Pub[] = [
     href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/06674d40ba2c453888e14d53a644ff7c/Where%20Wind%20Belongs%20Tiferet%20Fall%202017-2.pdf",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-8/048/1607048/Jn0mfjm8/b9c512a8f7d149e9914e7cc33baf8d7f",
-    dateLabel: "Tiferet, Fall 2017",
+    dateLabel: "Fall 2017",
   },
   {
     title: "Verbal Pointillism with Circular Line",
     kind: "Poem",
     note: "Originally published in Closer Magazine, 2002; republished in Ekphrastic Poetry, 2023.",
+    href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/0e733ed0ce6141c4ac7e4b4c9375c7ed/closer%20poems.pdf",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-8/048/1607048/Jn0mfjm8/e6efa9755b924e23af1a7bbfec6278e4",
-    dateLabel: "Ekphrastic Poetry, 2023",
+    dateLabel: "2023",
   },
 ];
 
@@ -183,7 +189,7 @@ const essays: Pub[] = [
     note: "Published in Braided Way Magazine.",
     href: "https://braidedway.org/mapping-a-path-to-the-divine/",
     cover: braidedWay,
-    dateLabel: "Braided Way, September 2023",
+    dateLabel: "September 2023",
   },
   {
     title: "Writing Myself: On Becoming a Real Writer",
@@ -191,17 +197,17 @@ const essays: Pub[] = [
     note: "Published by Women Who Submit.",
     href: "https://womenwhosubmitlit.org/2016/06/22/writing-myself-on-becoming-a-real-writer/",
     cover: writingMyselfCover,
-    dateLabel: "Women Who Submit, June 2016",
+    dateLabel: "June 2016",
   },
   {
     title: "Writing East to West and Back Again",
     sub: "Or Why Suffer? On practice & the call to write.",
     kind: "Book chapter",
-    note: "Published as a chapter in an edited collection.",
+    note: "Published as a chapter in an edited collection by Cambridge Scholars Publishing.",
     href: "https://storage.googleapis.com/wzukusers/user-36551884/documents/6142c9372beb4551a6168f71e807e7c6/Writing%20West%20to%20East%20and%20Back%20Again%20.pdf",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-8/048/1607048/Jn0mfjm8/d8fbeb8bcc69410bb9997b8b26349a46",
-    dateLabel: "Cambridge Scholars Publishing, 2015",
+    dateLabel: "2015",
   },
   {
     title: "A Body of Work",
@@ -215,11 +221,11 @@ const essays: Pub[] = [
   {
     title: "New Times Nightlife & Art",
     kind: "Columnist",
-    note: "Arts reviews and nightlife columns for South Florida's alternative press.",
+    note: "Arts reviews and nightlife columns for New Times Broward Palm Beach, South Florida's alternative press.",
     href: "https://www.browardpalmbeach.com/author/marya-summers/",
     cover:
       "https://storage.googleapis.com/production-hostgator-v1-0-8/048/1607048/Jn0mfjm8/402751f794114d169b926133c1fb845b",
-    dateLabel: "New Times Broward Palm Beach, 2006–2008",
+    dateLabel: "2006–2008",
   },
 ];
 
@@ -235,7 +241,7 @@ function PubCard({ pub: b, index }: { pub: Pub; index: number }) {
               src={b.cover}
               alt={`${b.title} cover`}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className={`h-full w-full ${b.coverFit === "contain" ? "object-contain" : "object-cover"}`}
             />
           </div>
           <div className="mt-5 font-display text-xl leading-tight text-forest">{b.title}</div>
@@ -259,7 +265,8 @@ function PubCard({ pub: b, index }: { pub: Pub; index: number }) {
         </div>
       )}
       <div className="mt-3 text-[0.65rem] uppercase tracking-[0.22em] text-forest/70">
-        {b.dateLabel ? `${b.kind} · ${b.dateLabel}` : b.kind}
+        <div>{b.kind}</div>
+        {b.dateLabel && <div className="mt-1">{b.dateLabel}</div>}
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/75">{b.note}</p>
       {b.href && (

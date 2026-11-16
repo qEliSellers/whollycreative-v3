@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroSpiral from "../assets/hero-spiral-clean.webp";
-import darkBand from "../assets/band-spiral-book.webp";
 import pathWriting from "../assets/path-writing.webp";
 import pathDivination from "../assets/path-divination.webp";
 import pathAmulets from "../assets/path-amulets.webp";
@@ -134,7 +133,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="grid items-stretch overflow-hidden md:grid-cols-2">
+      <section className="bg-forest">
         <div className="bg-forest px-8 py-20 text-cream md:px-16 lg:py-28">
           <div className="mx-auto max-w-md">
             <div className="eyebrow text-cream/80">Story. Symbol. Intention. Creation.</div>
@@ -155,11 +154,6 @@ function Home() {
             </div>
           </div>
         </div>
-        <div
-          className="min-h-[28rem] bg-cover bg-center"
-          style={{ backgroundImage: `url(${darkBand})` }}
-          aria-hidden
-        />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
