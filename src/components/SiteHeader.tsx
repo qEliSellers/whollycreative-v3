@@ -7,7 +7,14 @@ const navLinks = [
   { to: "/about", label: "MARYA" },
   { to: "/writing", label: "Writing" },
   { to: "/amulets", label: "Amulets" },
-  { to: "/work-with-me", label: "Work with Me" },
+  {
+    to: "/work-with-me",
+    label: "Work with Me",
+    children: [
+      { to: "/divination", label: "Divination", desc: "Tarot & oracle for honest questions" },
+      { to: "/mentorship", label: "Mentorship", desc: "Mentoring for writers & seekers" },
+    ],
+  },
 ] as const;
 
 const menuPages = [
@@ -51,17 +58,46 @@ export function SiteHeader() {
           <Logo />
         </Link>
         <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="font-sans text-[0.72rem] uppercase tracking-[0.22em] text-forest/80 transition-colors hover:text-gold"
-              activeProps={{ className: "text-forest border-b border-gold pb-1" }}
-              activeOptions={{ exact: "exact" in l ? l.exact : false }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navLinks.map((l) =>
+            "children" in l ? (
+              <div key={l.to} className="group relative">
+                <Link
+                  to={l.to}
+                  className="font-sans text-[0.72rem] uppercase tracking-[0.22em] text-forest/80 transition-colors hover:text-gold"
+                  activeProps={{ className: "text-forest border-b border-gold pb-1" }}
+                >
+                  {l.label}
+                </Link>
+                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition-opacity duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <div className="w-64 rounded-sm border border-border bg-background py-2 shadow-xl shadow-forest/10">
+                    {l.children.map((c) => (
+                      <Link
+                        key={c.to}
+                        to={c.to}
+                        className="flex flex-col gap-0.5 px-5 py-2.5 transition-colors hover:bg-stone/60"
+                        activeProps={{ className: "bg-stone/60" }}
+                      >
+                        <span className="font-sans text-[0.72rem] uppercase tracking-[0.22em] text-forest">
+                          {c.label}
+                        </span>
+                        <span className="text-xs text-ink/60">{c.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="font-sans text-[0.72rem] uppercase tracking-[0.22em] text-forest/80 transition-colors hover:text-gold"
+                activeProps={{ className: "text-forest border-b border-gold pb-1" }}
+                activeOptions={{ exact: "exact" in l ? l.exact : false }}
+              >
+                {l.label}
+              </Link>
+            ),
+          )}
         </nav>
         <div className="flex shrink-0 items-center gap-3">
           {/* Universal one-click menu — works on every screen size (native <details>, no JS required) */}

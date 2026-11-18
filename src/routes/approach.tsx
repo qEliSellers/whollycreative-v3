@@ -20,6 +20,8 @@ export const Route = createFileRoute("/approach")({
         content: "In service of revelation — the heart of the Wholly Creative spiral.",
       },
       { property: "og:image", content: heroSpiral },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ApproachPage,
@@ -95,6 +97,46 @@ function ApproachPage() {
           are navigating a life transition, seeking direction for a meaningful project, or longing
           to understand yourself more fully, I help illuminate what has been difficult to see and
           offer guidance rooted in that revelation.
+        </p>
+
+        <SpiralDivider className="mt-16" />
+
+        <h2 className="mt-14 text-center font-display text-3xl leading-tight text-forest md:text-4xl">
+          The Wholly Creative Method
+        </h2>
+        <p className="mt-8 text-base leading-[1.9] text-ink/80 md:text-lg">
+          I call this approach Wholly Creative because transformation doesn't happen by changing one
+          part of your life in isolation. It happens when every part of you begins to align around
+          what is most deeply true.
+        </p>
+        <p className="mt-8 text-base leading-[1.9] text-ink/80 md:text-lg">
+          Wholly Creative is both a methodology and a way of living. Each revelation invites deeper
+          integration. Each integration gives rise to more wholehearted creation. Every act of
+          creation opens the door to another revelation. Like a spiral, the process is directed both
+          inward and outward. It is a recursive process that continually returns to familiar places
+          with greater wisdom, greater freedom, and a deeper expression of who you are.
+        </p>
+
+        <SpiralDivider className="mt-16" />
+
+        <h2 className="mt-14 text-center font-display text-3xl leading-tight text-forest md:text-4xl">
+          Sacred Objects
+        </h2>
+        <p className="mt-8 text-base leading-[1.9] text-ink/80 md:text-lg">
+          The sacred objects I create are a natural extension of this work.
+        </p>
+        <p className="mt-8 text-base leading-[1.9] text-ink/80 md:text-lg">
+          Each piece is handcrafted from natural materials—stone, crystal, metal, silk, and other
+          elements of the Earth—and is intended to become a tangible companion for the journey. Some
+          serve as reminders of a revelation you wish to remember. Others anchor a new way of being,
+          support a meaningful intention, or accompany you through a season of transformation.
+        </p>
+        <p className="mt-8 text-base leading-[1.9] text-ink/80 md:text-lg">
+          Sometimes people are immediately drawn to the object they need. Other times, a
+          consultation reveals the piece best suited to where they are and where they are going. In
+          either case, the object is not the destination. It is a physical expression of the same
+          Wholly Creative spiral: seeing more clearly, integrating more deeply, and creating from
+          your whole self.
         </p>
 
         <SpiralDivider className="mt-16" />

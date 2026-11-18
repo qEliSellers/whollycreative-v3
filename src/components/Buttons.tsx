@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 const base =
   "inline-flex items-center rounded-full font-sans uppercase transition-all disabled:cursor-not-allowed disabled:opacity-45";
@@ -16,6 +16,22 @@ function MarkSpiral() {
         strokeWidth="1"
         fill="none"
       />
+    </svg>
+  );
+}
+
+function MarkDownload() {
+  return (
+    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 opacity-80" aria-hidden="true">
+      <path
+        d="M8 2.5v7m0 0 3-3m-3 3-3-3"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M3 12.5h10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -57,5 +73,40 @@ export function GhostButton({
       {children}
       <MarkSpiral />
     </button>
+  );
+}
+
+/**
+ * Link to a file the app serves (a CDN asset pointer URL or a /downloads path).
+ * `filename` names the saved file and defaults to the name at the end of `href`.
+ * `variant="quiet"` is the small text-link style used beneath a primary call to action.
+ */
+export function DownloadLink({
+  children,
+  href,
+  filename,
+  variant = "solid",
+  className = "",
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement> & {
+  children: ReactNode;
+  href: string;
+  filename?: string;
+  variant?: "solid" | "quiet";
+}) {
+  const styling =
+    variant === "solid"
+      ? `${base} ${sizeMd} bg-forest text-cream hover:bg-forest-deep`
+      : "inline-flex items-center gap-2.5 font-sans text-[0.7rem] uppercase tracking-[0.24em] text-forest transition-colors hover:text-gold";
+  return (
+    <a
+      {...props}
+      href={href}
+      download={filename ?? href.split("/").pop()}
+      className={`${styling} ${className}`}
+    >
+      {children}
+      <MarkDownload />
+    </a>
   );
 }

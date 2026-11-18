@@ -2,6 +2,19 @@ import { Link } from "@tanstack/react-router";
 import { SpiralDivider } from "./Spiral";
 
 export function SiteFooter() {
+  const footerLinks = [
+    [
+      { to: "/about", label: "About" },
+      { to: "/writing", label: "Writing" },
+      { to: "/amulets", label: "Amulets" },
+    ],
+    [
+      { to: "/work-with-me", label: "Work with Me" },
+      { to: "/approach", label: "My Approach" },
+      { to: "/contact", label: "Contact" },
+    ],
+  ] as const;
+
   return (
     <footer className="bg-forest text-cream/90">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12">
@@ -17,20 +30,9 @@ export function SiteFooter() {
           <div>
             <div className="eyebrow text-cream/60">Wander</div>
             <div className="mt-5 grid grid-cols-2 gap-x-8">
-              {[
-                [
-                  ["/about", "About"],
-                  ["/writing", "Writing"],
-                  ["/amulets", "Amulets"],
-                ],
-                [
-                  ["/work-with-me", "Work with Me"],
-                  ["/approach", "My Approach"],
-                  ["/contact", "Contact"],
-                ],
-              ].map((col, i) => (
+              {footerLinks.map((col, i) => (
                 <ul key={i} className="space-y-3 text-sm">
-                  {col.map(([to, label]) => (
+                  {col.map(({ to, label }) => (
                     <li key={to}>
                       <Link
                         to={to}
@@ -60,7 +62,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-cream/15 pt-6 text-xs text-cream/55 md:flex-row">
           <div>© {new Date().getFullYear()} Marya Summers · Wholly Creative</div>
-          <div className="italic">Be rooted. Be imaginative. Be wholly yourself.</div>
+          <div className="italic">See clearly. Integrate opposites. Create from Your Whole Self.</div>
         </div>
       </div>
     </footer>

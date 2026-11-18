@@ -14,6 +14,8 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact Marya Summers" },
       { property: "og:description", content: "Write to Marya. She reads every letter." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: ContactPage,
@@ -54,17 +56,7 @@ function ContactPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Write to me"
-        title={
-          <>
-            Tell me what
-            <br />
-            <em className="italic text-teal">you're carrying.</em>
-          </>
-        }
-        intro="I read every letter. I answer most within the week. If your message is urgent, say so — and forgive me for taking the time the work deserves."
-      />
+      <PageHeader eyebrow="Write to me" title="Contact" />
 
       <section className="mx-auto grid max-w-6xl gap-16 px-6 pb-28 md:grid-cols-[3fr_2fr] lg:px-12">
         <form

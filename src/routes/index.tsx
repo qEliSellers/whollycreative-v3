@@ -4,10 +4,6 @@ import pathWriting from "../assets/path-writing.webp";
 import pathDivination from "../assets/path-divination.webp";
 import pathAmulets from "../assets/path-amulets.webp";
 import pathMentorship from "../assets/path-mentorship.webp";
-import spiralWriting from "../assets/spiral_writing_trans.webp";
-import spiralDivination from "../assets/spiral_divination_trans.webp";
-import spiralAmulets from "../assets/spiral_amulets_trans.webp";
-import spiralCreativity from "../assets/spiral_creativity_trans.webp";
 import { PathwayCard } from "../components/PathwayCard";
 import { GhostButton, PrimaryLink, OutlineLink } from "../components/Buttons";
 import { SpiralDivider } from "../components/Spiral";
@@ -23,6 +19,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Wholly Creative — Marya Summers" },
       { property: "og:description", content: "Be rooted. Be expansive. Be wholly creative." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -33,44 +31,27 @@ const pathways = [
     to: "/writing",
     image: pathWriting,
     title: "Writing",
-    blurb: "Books, essays, poetry & publications.",
-  },
-  {
-    to: "/divination",
-    image: pathDivination,
-    title: "CONSULTING & TEACHING",
-    blurb: "Tarot, oracle & intuitive guidance. (?)",
-  },
-  {
-    to: "/amulets",
-    image: pathAmulets,
-    title: "CARD READINGS",
-    blurb: "Handcrafted talismans & sacred objects. (?)",
+    blurb: "Poetry and essays that invite deeper seeing.",
   },
   {
     to: "/mentorship",
     image: pathMentorship,
-    title: "SACRED OBJECTS",
-    blurb: "Coaching for writers, artists & seekers. (?)",
+    title: "Consulting & Teaching",
+    blurb: "Thought collaboration for creators, visionaries, and people standing at important crossroads.",
+  },
+  {
+    to: "/divination",
+    image: pathDivination,
+    title: "Card Readings",
+    blurb: "Symbolic guidance that reveals hidden patterns and illuminates meaningful next steps.",
+  },
+  {
+    to: "/amulets",
+    image: pathAmulets,
+    title: "Sacred Objects",
+    blurb: "Handcrafted companions that anchor revelation in the physical world.",
   },
 ] as const;
-
-const elements = [
-  { name: "Writing", image: spiralWriting, line1: "Ink flows.", line2: "Stories take shape." },
-  {
-    name: "Divination",
-    image: spiralDivination,
-    line1: "Intuition moves.",
-    line2: "Truth is revealed.",
-  },
-  { name: "Amulets", image: spiralAmulets, line1: "Intention roots.", line2: "Energy protects." },
-  {
-    name: "Creativity",
-    image: spiralCreativity,
-    line1: "Imagination ignites.",
-    line2: "Expression transforms.",
-  },
-];
 
 function Home() {
   return (
@@ -84,17 +65,15 @@ function Home() {
             <div className="eyebrow">Where story, spirit, and creativity meet.</div>
           </div>
           <h1 className="mt-8 font-display text-4xl leading-[1.05] text-forest md:text-5xl lg:text-[3.625rem]">
-            Be rooted.
+            See clearly.
             <br />
-            Be expansive.
+            Integrate opposites.
             <br />
-            Be <em className="font-display italic text-teal">wholly</em> creative.
+            Create from Your&nbsp;<span className="italic text-teal">Whole</span>&nbsp;Self.
           </h1>
           <SpiralDivider className="my-8 justify-start" />
           <p className="max-w-md text-base leading-[1.85] text-ink/75">
-            I help creative souls reconnect with their inner wisdom, tell their stories, and bring
-            meaningful ideas to life through writing, intuitive guidance, handcrafted amulets, and
-            creative mentorship.
+            Wholly Creative is a living practice of revelation — helping you uncover the hidden patterns shaping your life, your work, and your creativity so that what you create reflects who you truly are.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <PrimaryLink to="/approach">Explore the Method</PrimaryLink>
@@ -116,20 +95,6 @@ function Home() {
             height={1024}
             className="w-full"
           />
-        </div>
-      </section>
-
-      <section className="bg-stone/50 py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="text-center">
-            <div className="eyebrow">Four pathways. One purpose.</div>
-            <SpiralDivider className="mt-5" />
-          </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {pathways.map((p) => (
-              <PathwayCard key={p.to} {...p} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -156,33 +121,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
-        <div className="flex items-center gap-6">
-          <div className="eyebrow whitespace-nowrap">The spiral in everything</div>
-          <div className="h-px flex-1 bg-gold/60" />
-        </div>
-        <div className="mt-14 grid grid-cols-2 gap-10 text-center sm:grid-cols-4">
-          {elements.map((el) => (
-            <div key={el.name} className="flex flex-col items-center">
-              <img
-                src={el.image}
-                alt={`${el.name} spiral motif`}
-                loading="lazy"
-                className="aspect-square w-full max-w-[180px] object-contain"
-              />
-              <div className="mt-6 font-display text-xs uppercase tracking-[0.22em] text-forest">
-                {el.name}
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-ink/70 md:text-sm">
-                {el.line1}
-                <br />
-                {el.line2}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="mx-auto max-w-3xl px-6 pb-24 text-center lg:px-12">
         <div className="eyebrow">Revelation changes everything</div>
         <SpiralDivider className="mt-5" />
@@ -196,6 +134,20 @@ function Home() {
           refuses to resolve itself, revelation changes not only what you see—but what becomes
           possible.
         </p>
+      </section>
+
+      <section className="bg-stone/50 py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="text-center">
+            <div className="eyebrow">HOW WE WORK</div>
+            <SpiralDivider className="mt-5" />
+          </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pathways.map((p) => (
+              <PathwayCard key={p.to} {...p} />
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="bg-stone/50 py-24">

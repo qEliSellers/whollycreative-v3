@@ -1,0 +1,2 @@
+# Local CLI identifier. The hosting project supplies its own Supabase connection.
+project_id = "wholly-creative"

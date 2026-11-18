@@ -4,6 +4,7 @@ import { SpiralDivider } from "../components/Spiral";
 import { GhostButton } from "../components/Buttons";
 import { BackLink } from "../components/BackLink";
 import pathDivination from "../assets/path-divination.webp";
+import maryaPortrait from "../assets/marya-divination-portrait.jpeg";
 
 export const Route = createFileRoute("/divination")({
   head: () => ({
@@ -71,17 +72,7 @@ function DivinationPage() {
   return (
     <>
       <BackLink to="/work-with-me" label="Back to Work With Me" />
-      <PageHeader
-        eyebrow="Divination"
-        title={
-          <>
-            A grounded reading
-            <br />
-            <em className="italic text-teal">for an honest question.</em>
-          </>
-        }
-        intro="The cards are a mirror, not a script. I read tarot and oracle the way I read a poem — slowly, attentively, and with a steady regard for what is actually here."
-      />
+      <PageHeader eyebrow="Divination" title="Divination" />
 
       <section className="mx-auto max-w-6xl px-6 pb-24 lg:px-12">
         <div className="grid gap-6 md:grid-cols-3">
@@ -99,6 +90,17 @@ function DivinationPage() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-md px-6 pb-24">
+        <div className="overflow-hidden rounded-sm bg-stone ring-1 ring-border/70">
+          <img
+            src={maryaPortrait}
+            alt="Marya Summers wearing a gold crescent-moon headpiece, smiling before a burgundy velvet backdrop"
+            loading="lazy"
+            className="max-h-[520px] w-full object-cover object-top"
+          />
         </div>
       </section>
 

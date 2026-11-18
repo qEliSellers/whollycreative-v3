@@ -1,10 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import pathMentorship from "../assets/path-mentorship.webp";
 import type { ReactNode } from "react";
 import { PageHeader } from "../components/PageHeader";
 import { SpiralDivider } from "../components/Spiral";
 import { PrimaryLink, GhostButton } from "../components/Buttons";
-import pathDivination from "../assets/path-divination.webp";
-import pathMentorship from "../assets/path-mentorship.webp";
 
 export const Route = createFileRoute("/work-with-me")({
   head: () => ({
@@ -21,6 +20,8 @@ export const Route = createFileRoute("/work-with-me")({
           "Tarot readings and long-form mentorship for writers, makers, and people becoming.",
       },
       { property: "og:image", content: pathMentorship },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: WorkWithMePage,
@@ -165,49 +166,7 @@ function WorkWithMePage() {
         intro="Whether you come for a reading or for the long work of mentorship, the room is the same: quiet, attentive, and committed to what is actually here."
       />
 
-      <section className="mx-auto max-w-6xl px-6 pb-12 lg:px-12">
-        <div className="grid gap-6 md:grid-cols-2">
-          <Link
-            to="/divination"
-            className="group flex flex-col overflow-hidden rounded-sm bg-card ring-1 ring-border/70 transition hover:ring-gold"
-          >
-            <img
-              src={pathDivination}
-              alt="Tarot cards"
-              loading="lazy"
-              className="h-56 w-full object-cover"
-            />
-            <div className="p-8">
-              <div className="eyebrow text-gold">Divination</div>
-              <h2 className="mt-3 font-display text-3xl text-forest">A grounded reading</h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink/75">
-                Tarot and oracle for honest questions. 45 to 90 minutes, by video or in person.
-              </p>
-            </div>
-          </Link>
-          <Link
-            to="/mentorship"
-            className="group flex flex-col overflow-hidden rounded-sm bg-card ring-1 ring-border/70 transition hover:ring-gold"
-          >
-            <img
-              src={pathMentorship}
-              alt="A writing desk"
-              loading="lazy"
-              className="h-56 w-full object-cover"
-            />
-            <div className="p-8">
-              <div className="eyebrow text-gold">Mentorship</div>
-              <h2 className="mt-3 font-display text-3xl text-forest">
-                Good company for the long work
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink/75">
-                Single sessions, season-long containers, and a small circle for writers, makers, and
-                seekers.
-              </p>
-            </div>
-          </Link>
-        </div>
-      </section>
+
 
       <section className="mx-auto max-w-6xl px-6 py-20 lg:px-12">
         <div className="eyebrow text-gold">Divination sessions</div>

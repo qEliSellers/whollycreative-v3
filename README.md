@@ -1,24 +1,24 @@
-# Creative Reboot
+# Wholly Creative
 
-Create a new instance of the website from the attached archive (Wholly Creative Refresh 2nd iteration).
+This is Marya Summers’s website. The `main` branch combines the Wholly Creative v3 edits with Creative Reboot’s publication and mentorship updates. Creative Reboot is the Lovable project connected to this branch. [Open Creative Reboot in Lovable](https://lovable.dev/projects/7c6d782e-819c-4601-9f62-f87d9895cc74).
 
-This project was built with [Lovable](https://lovable.dev).
+The pre-merge site is preserved on the [Creative Reboot backup branch](https://github.com/qEliSellers/whollycreative-v3/tree/codex/backup-creative-reboot-2026-11-18).
 
-## Build with Lovable
+## Hosting handoff
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7c6d782e-819c-4601-9f62-f87d9895cc74).
+The public pages, downloadable CV and Divination portrait work from this repository. The public site can run with Lovable Cloud disabled. If the hosting project enables Cloud, use its own Supabase settings. The repository includes the integration code and empty schema from v3.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+The four amulet mockups are marked as drafts. Both shop categories stay empty until inventory is available.
+
+One editorial decision is pending on Writing. The “A Hard Climb” card currently shows Creative Reboot’s complete image. V3 used a different page image cropped from the top. [Current cover](src/assets/a-hard-climb-cover.jpg) · [V3 page image](.lovable/content-backups/2026-11-18/a-hard-climb-page.jpg)
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+With Node.js and Bun installed, run these commands from the repository root.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
+
+Run `bun run build` for a production build.
