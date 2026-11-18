@@ -10,7 +10,7 @@ The public pages, downloadable CV and Divination portrait work from this reposit
 
 The four amulet mockups are marked as drafts. Both shop categories stay empty until inventory is available.
 
-One editorial decision is pending on Writing. The “A Hard Climb” card currently shows Creative Reboot’s complete image. V3 used a different page image cropped from the top. [Current cover](src/assets/a-hard-climb-cover.jpg) · [V3 page image](.lovable/content-backups/2026-11-18/a-hard-climb-page.jpg)
+The “A Hard Climb” card shows the approved cover of *Kaleidoscope* No. 87, *The Ties That Bind* (Summer/Fall 2023). The card displays the full cover without cropping. [Approved cover](src/assets/a-hard-climb-cover.jpg) · [Archived v3 page image](.lovable/content-backups/2026-11-18/a-hard-climb-page.jpg)
 
 ## Development
 
